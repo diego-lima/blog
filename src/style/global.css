@@ -4,6 +4,8 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 :root {
+	--force-dark-mode: 1; /* Toggle between 0 and 1 to control color scheme */
+	
 	--white: #efefef;
 	--transwhite: rgba(239, 239, 239, 0.7);
 	--moretranswhite: rgba(239, 239, 239, 0.1);
@@ -63,7 +65,7 @@ body.dark-mode nav {
 	color: var(--black);
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark), (min-width: 0px) or (--force-dark-mode: 1) {
 	::selection {
 		background-color: #0f0f0f;
 		color: var(--white);
@@ -80,11 +82,11 @@ body.dark-mode nav {
 	body em,
 	body blockquote,
 	body .go-home {
-		background: var(--black);
+		background: var(--flexoki-blue-950);
 		color: var(--white);
 	}
 	body nav {
-		background: var(--transblack);
+		background: var(--flexoki-blue-900);
 	}
 	body code {
 		background-color: var(--moretranswhite);
@@ -232,6 +234,15 @@ h3 {
 
 .header-frame {
 	max-width: 350px;
+}
+
+.img-frame {
+	position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 10px 0;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 article :not(.article-title) {
