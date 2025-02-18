@@ -1,6 +1,7 @@
 ---
 import "../style/fonts.css";
 import "../style/global.css";
+import "../style/flexoki.css";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
@@ -31,7 +32,7 @@ const { title, description, image = "/home-blog-card.png" } = Astro.props;
 	<meta property="twitter:url" content={Astro.url} />
 	<meta property="twitter:title" content={title} />
 	<meta property="twitter:description" content={description} />
-	<meta name="twitter:creator" content="@cassidoo" />
+	<meta name="twitter:creator" content="@diblacksmith" />
 	<meta name="twitter:image" content={new URL(image, Astro.url)} />
 
 	<!-- RSS Link -->

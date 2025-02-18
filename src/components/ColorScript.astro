@@ -1,24 +1,33 @@
 <script is:inline>
-	let colors = ["#24d05a", "#eb4888", "#10a2f5", "#e9bc3f"];
+	const flexokiColors = [
+		'var(--flexoki-red-400)',
+		'var(--flexoki-orange-400)',
+		'var(--flexoki-yellow-400)',
+		'var(--flexoki-green-400)',
+		'var(--flexoki-cyan-400)',
+		'var(--flexoki-blue-400)',
+		'var(--flexoki-purple-400)',
+		'var(--flexoki-magenta-400)'
+	];
 
-	function getRandomColor() {
-		return colors[Math.floor(Math.random() * colors.length)];
+	function hashString(str) {
+		let hash = 0;
+		for (let i = 0; i < str.length; i++) {
+			const char = str.charCodeAt(i);
+			hash = ((hash << 5) - hash) + char;
+			hash = hash & hash;
+		}
+		return Math.abs(hash);
 	}
 
-	function setRandomLinkColor() {
-		Array.from(document.getElementsByTagName("a")).forEach((e) => {
-			e.style.textDecorationColor = getRandomColor();
+	function setLinkColors() {
+		Array.from(document.getElementsByTagName("a")).forEach((link) => {
+			const href = link.getAttribute("href") || "";
+			const colorIndex = hashString(href) % flexokiColors.length;
+			link.style.textDecorationColor = flexokiColors[colorIndex];
 		});
 	}
 
-	function setColorHoverListener() {
-		Array.from(document.querySelectorAll("a, button")).forEach((e) => {
-			e.addEventListener("mouseover", setRandomLinkColor);
-		});
-	}
-
-	(function () {
-		setRandomLinkColor();
-		setColorHoverListener();
-	})();
+	// Set colors once when the page loads
+	document.addEventListener("DOMContentLoaded", setLinkColors);
 </script>
