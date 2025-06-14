@@ -4,11 +4,11 @@ A personal blog built with Astro to document coding adventures, learning experie
 
 ## Features
 
-- ✨ Clean, minimalist design focused on content
-- 📝 Markdown content collections for easy blog post management
-- 🖼️ Support for images and rich media in posts
-- 🏷️ Tag-based organization for posts
-- 🔄 Fast and responsive interface
+- Design focused on content
+- Markdown content collections for easy blog post management
+- Support for images
+- Tag-based organization for posts
+- Fast and responsive interface
 
 ## Getting Started
 
